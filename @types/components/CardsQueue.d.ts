@@ -1,0 +1,3 @@
+interface ICardsQueueProps {
+  isFrom: boolean
+}

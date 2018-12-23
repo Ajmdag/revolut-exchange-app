@@ -1,0 +1,7 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --header-height: 40px;
+  height: var(--header-height);
+}
