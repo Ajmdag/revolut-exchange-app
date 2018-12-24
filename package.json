@@ -46,7 +46,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run tslint",
-      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS",
+      "post-merge": "npm ci"
     }
   }
 }
