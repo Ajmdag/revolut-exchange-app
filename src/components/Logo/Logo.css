@@ -1,0 +1,11 @@
+.Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Logo__image {
+  width: 70%;
+  object-fit: cover;
+}

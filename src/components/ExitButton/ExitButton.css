@@ -1,0 +1,13 @@
+.ExitButton {
+  display: flex;
+  justify-content: center;
+}
+
+.ExitButton__button {
+  border: none;
+  cursor: pointer;
+  background-color: #eee;
+  color: #222;
+  padding: 15px 25px;
+  font-size: 20px;
+}
