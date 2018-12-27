@@ -1,3 +1,8 @@
 .MainArea {
   width: 80%;
 }
+
+.MainArea-ExchangeZone {
+  display: flex;
+  justify-content: space-around;
+}

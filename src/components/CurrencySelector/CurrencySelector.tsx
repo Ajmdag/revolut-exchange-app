@@ -6,7 +6,7 @@ import {
   changeToCurrency,
 } from '../../store/modules/App/app.actions'
 
-class CurrencySelector extends Component<ICurrencySelector> {
+class CurrencySelector extends Component<ICurrencySelectorProps> {
 
   public state = {
     selectedValue: 'USD',
@@ -25,11 +25,14 @@ class CurrencySelector extends Component<ICurrencySelector> {
   }
 
   private handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    
     this.setState({
       selectedValue: event.target.value,
     }, () => {
-      this.props.changeFromCurrency(this.state.selectedValue)
+      if (this.props.currencyType === 'to') {
+        this.props.changeFromCurrency(this.state.selectedValue)
+      } else if (this.props.currencyType === 'from') {
+        this.props.changeToCurrency(this.state.selectedValue)
+      }
     })
   }
 }

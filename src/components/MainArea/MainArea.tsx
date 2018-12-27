@@ -16,9 +16,10 @@ class MainArea extends Component<any> {
     return (
     <div className="MainArea">
       <ExchangeTitle />
-      <CurrencyCard />
-      <CurrencyCard />
-      {/* <h1>{this.props.changeFromCurrency()}</h1> */}
+      <div className="MainArea-ExchangeZone">
+        <CurrencyCard currencyType="from"/>
+        <CurrencyCard currencyType="to"/>
+      </div>
     </div>
     )
   }
