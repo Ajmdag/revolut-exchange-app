@@ -9,7 +9,7 @@ import {
 class CurrencySelector extends Component<ICurrencySelectorProps> {
 
   public state = {
-    selectedValue: 'USD',
+    selectedValue: '',
   }
 
   public render() {
@@ -25,13 +25,15 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
   }
 
   private handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    alert(event.target.value)
     this.setState({
       selectedValue: event.target.value,
     }, () => {
       if (this.props.currencyType === 'to') {
-        this.props.changeFromCurrency(this.state.selectedValue)
-      } else if (this.props.currencyType === 'from') {
         this.props.changeToCurrency(this.state.selectedValue)
+      }
+       else if (this.props.currencyType === 'from') {
+        this.props.changeFromCurrency(this.state.selectedValue)
       }
     })
   }

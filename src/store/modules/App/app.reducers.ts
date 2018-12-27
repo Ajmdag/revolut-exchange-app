@@ -4,7 +4,7 @@ import {EApp} from './app.actions'
 const initialState: IStore = {
   fromCurrency: 'USD',
   fromCurrencyQuantity: 0,
-  toCurrency: 'EUR',
+  toCurrency: 'USD',
   toCurrencyQuantity: 0,
   userMoney: {
     EUR: 300,
