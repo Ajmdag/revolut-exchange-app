@@ -4,6 +4,7 @@ interface ICurrencyValueInputOwnProps {
 
 interface ICurrencyValueInputDispatchProps {
   changeFromCurrencyQuantity: (quantity: string) => void
+  fetchRates: () => any
 }
 
 interface ICurrencyValueInputProps extends

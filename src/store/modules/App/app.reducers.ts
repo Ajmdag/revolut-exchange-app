@@ -4,6 +4,7 @@ import {EApp} from './app.actions'
 const initialState: IStore = {
   fromCurrency: 'USD',
   fromCurrencyQuantity: 0,
+  ratesData: {},
   toCurrency: 'USD',
   toCurrencyQuantity: 0,
   userMoney: {
@@ -49,9 +50,19 @@ const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: Any
   }
 }
 
+const ratesData = (state = initialState.ratesData, action: AnyAction) => {
+  switch (action.type) {
+    case EApp.FETCH_RATES:
+      return action.payload
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   fromCurrency,
   fromCurrencyQuantity,
+  ratesData,
   toCurrency,
   toCurrencyQuantity,
 })

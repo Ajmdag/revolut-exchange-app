@@ -8,4 +8,5 @@ interface IStore {
   toCurrencyQuantity: number, // (what user enters)
   fromCurrency: any, // (what user enters)
   toCurrency: any, // (what user enters)
+  ratesData: {}
 }
