@@ -1,13 +1,51 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {IDispatch} from '../../store'
+import {
+  changeFromCurrencyQuantity,
+} from '../../store/modules/App/app.actions'
 
-class CurrencyValueInput extends Component {
+import './CurrencyValueInput.css'
+
+class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
+
+  public state = {
+    inputValue: '',
+  }
+
   public render() {
     return (
     <div className="CurrencyValueInput">
-      <input type="text"/>
+      <input
+      disabled={this.props.currencyType === 'to'}
+      className="CurrencyValueInput-Input"
+      type="text"
+      value={this.state.inputValue}
+      maxLength={30}
+      pattern="[0-9]*"
+      onChange={this.handleChangeInput} />
     </div>
     )
   }
+
+  private handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target
+    if (target.validity.valid) {
+      const inputValue = target.validity.valid ? target.value : this.state.inputValue
+      this.setState({inputValue}, () => {
+        if (this.props.currencyType === 'from') {
+          this.props.changeFromCurrencyQuantity(this.state.inputValue)
+        }
+      })
+    }
+  }
 }
 
-export default CurrencyValueInput
+const mapDispatchToProps = (dispatch: IDispatch): ICurrencyValueInputDispatchProps => ({
+  changeFromCurrencyQuantity: (quantity: string) => dispatch(changeFromCurrencyQuantity(quantity)),
+})
+
+export default connect<null, ICurrencyValueInputDispatchProps>(
+  null,
+  mapDispatchToProps,
+)(CurrencyValueInput)

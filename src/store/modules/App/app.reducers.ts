@@ -31,7 +31,27 @@ const toCurrency = (state = initialState.toCurrency, action: AnyAction) => {
   }
 }
 
+const fromCurrencyQuantity = (state = initialState.fromCurrencyQuantity, action: AnyAction) => {
+  switch (action.type) {
+    case EApp.FROM_CURRENCY_CHANGE_QUANTITY:
+      return Number(action.payload)
+    default:
+      return state
+  }
+}
+
+const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: AnyAction) => {
+  switch (action.type) {
+    case EApp.TO_CURRENCY_CHANGE_QUANTITY:
+      return Number(action.payload)
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   fromCurrency,
+  fromCurrencyQuantity,
   toCurrency,
+  toCurrencyQuantity,
 })

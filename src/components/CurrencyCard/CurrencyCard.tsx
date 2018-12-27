@@ -8,7 +8,7 @@ class CurrencyCard extends Component<ICurrencyCardProps> {
   public render() {
     return (
     <div className="CurrencyCard">
-      <CurrencyValueInput />
+      <CurrencyValueInput currencyType={this.props.currencyType}/>
       <CurrencySelector currencyType={this.props.currencyType}/>
     </div>
     )
