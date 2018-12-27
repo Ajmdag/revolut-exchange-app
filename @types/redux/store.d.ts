@@ -6,6 +6,6 @@ interface IStore {
   },
   fromCurrencyQuantity: number, // (what user enters)
   toCurrencyQuantity: number, // (what user enters)
-  fromCurrency: string, // (what user enters)
-  toCurrency: string, // (what user enters)
+  fromCurrency: any, // (what user enters)
+  toCurrency: any, // (what user enters)
 }

@@ -1,4 +1,4 @@
-import {AnyAction} from 'redux'
+import {AnyAction, combineReducers} from 'redux'
 import {EApp} from './app.actions'
 
 const initialState: IStore = {
@@ -13,13 +13,25 @@ const initialState: IStore = {
   },
 }
 
-const changeFromCurrency = (state = initialState.fromCurrency, action: AnyAction) => {
+const fromCurrency = (state = initialState.fromCurrency, action: AnyAction) => {
   switch (action.type) {
     case EApp.FROM_CURRENCY_CHANGE:
-      return action.type
+      return action.payload
     default:
       return state
   }
 }
 
-export default changeFromCurrency
+const toCurrency = (state = initialState.toCurrency, action: AnyAction) => {
+  switch (action.type) {
+    case EApp.TO_CURRENCY_CHANGE:
+      return action.payload
+    default:
+      return state
+  }
+}
+
+export default combineReducers({
+  fromCurrency,
+  toCurrency,
+})

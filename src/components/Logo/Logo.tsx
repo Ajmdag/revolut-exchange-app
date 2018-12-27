@@ -6,7 +6,7 @@ class Logo extends Component {
   public render() {
     return (
     <div className="Logo">
-      <img src="./assets/revolut-logo.png" alt="Revolut logo" className="Logo__image" />
+      <img src="./assets/revolut-logo.png" alt="Revolut logo" className="Logo-Image" />
     </div>
     )
   }

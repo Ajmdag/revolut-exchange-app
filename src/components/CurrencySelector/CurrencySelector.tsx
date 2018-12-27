@@ -5,17 +5,32 @@ import {
   changeFromCurrency,
   changeToCurrency,
 } from '../../store/modules/App/app.actions'
-import './ExchangeTitle.css'
 
-class ExchangeTitle extends Component<IExchangeTitleProps> {
+class CurrencySelector extends Component<ICurrencySelector> {
+
+  public state = {
+    selectedValue: 'USD',
+  }
+
   public render() {
     return (
-    <div className="ExchangeTitle">
-      <span>{this.props.fromCurrency}</span>
-      <img className="ExchangeTitle-Image" src="./assets/arrow.svg" alt=""/>
-      <span>{this.props.toCurrency}</span>
+    <div className="CurrencySelector">
+      <select onChange={this.handleChangeSelect} name="" id="">
+        <option>USD</option>
+        <option>EUR</option>
+        <option>GBP</option>
+      </select>
     </div>
     )
+  }
+
+  private handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    
+    this.setState({
+      selectedValue: event.target.value,
+    }, () => {
+      this.props.changeFromCurrency(this.state.selectedValue)
+    })
   }
 }
 
@@ -35,4 +50,4 @@ const mapDispatchToProps = (dispatch: IDispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ExchangeTitle)
+)(CurrencySelector)

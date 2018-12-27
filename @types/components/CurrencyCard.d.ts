@@ -1,3 +1,0 @@
-interface ICurrencyCardProps {
-  isFrom: boolean
-}

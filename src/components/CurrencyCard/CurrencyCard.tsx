@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
+import CurrencySelector from '../CurrencySelector'
+import CurrencyValueInput from '../CurrencyValueInput'
 
-class CurrencyCard extends Component<ICurrencyCardProps> {
+class CurrencyCard extends Component {
   public render() {
     return (
     <div className="CurrencyCard">
       CurrencyCard
-      {this.props.isFrom ? 'from' : 'to'}
+      <CurrencyValueInput />
+      <CurrencySelector />
     </div>
     )
   }

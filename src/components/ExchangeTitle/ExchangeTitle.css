@@ -1,0 +1,12 @@
+.ExchangeTitle {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  background-color: #eee;
+  padding: 15px 20px;
+}
+
+.ExchangeTitle-Image {
+  height: 20px;
+  margin: 0 60px;
+}
