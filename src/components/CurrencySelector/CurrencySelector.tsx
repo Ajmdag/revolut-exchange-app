@@ -25,7 +25,6 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
   }
 
   private handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    alert(event.target.value)
     this.setState({
       selectedValue: event.target.value,
     }, () => {

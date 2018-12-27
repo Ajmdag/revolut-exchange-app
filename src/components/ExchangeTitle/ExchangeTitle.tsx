@@ -11,9 +11,9 @@ class ExchangeTitle extends Component<IExchangeTitleProps> {
   public render() {
     return (
     <div className="ExchangeTitle">
-      <span>{this.props.toCurrency}</span>
-      <img className="ExchangeTitle-Image" src="./assets/arrow.svg" alt=""/>
       <span>{this.props.fromCurrency}</span>
+      <img className="ExchangeTitle-Image" src="./assets/arrow.svg" alt=""/>
+      <span>{this.props.toCurrency}</span>
     </div>
     )
   }
