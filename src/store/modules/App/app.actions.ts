@@ -2,7 +2,7 @@ import {IDispatch, IGetState} from '../../'
 
 // API data for openexchangerates.org
 const API = 'https://openexchangerates.org/api/latest.json?app_id='
-const APP_ID = 'db72535fa96944f8b020ae751a503707***'
+const APP_ID = 'db72535fa96944f8b020ae751a503707___'
 
 export enum EApp {
   FROM_CURRENCY_CHANGE = '@fromCurrency/CHANGE',
@@ -10,6 +10,7 @@ export enum EApp {
   FROM_CURRENCY_CHANGE_QUANTITY = '@fromCurrency/CHANGE_QUANTITY',
   TO_CURRENCY_CHANGE_QUANTITY = '@toCurrency/CHANGE_QUANTITY',
   COUNT_TO_CURRENCY_QUANTITY = '@toCurrency/COUNT',
+  ERROR_COUNT_TO_CURRENCY_QUANTITY = '@toCurrency/ERROR_WHEN_COUNT',
   FETCH_RATES = '@rates/FETCH_RATES',
 }
 
@@ -24,11 +25,21 @@ export const countToCurrencyQuantity = () => {
   return (dispatch: IDispatch, getState: IGetState) => {
     const {ratesData, toCurrency, fromCurrency, fromCurrencyQuantity} = getState()
 
-    const toCurrencyQuantity = (
+    const toCurrencyQuantity = Number((
       1 / ratesData[fromCurrency] * ratesData[toCurrency] * Number(fromCurrencyQuantity)
-      ).toFixed(2)
+      ).toFixed(2))
 
-    dispatch({type: EApp.COUNT_TO_CURRENCY_QUANTITY, payload: toCurrencyQuantity})
+      if (toCurrencyQuantity) {
+        dispatch({
+          payload: toCurrencyQuantity,
+          type: EApp.COUNT_TO_CURRENCY_QUANTITY,
+        })
+      } else {
+        dispatch({
+          payload: 'An error happend ;(',
+          type: EApp.ERROR_COUNT_TO_CURRENCY_QUANTITY,
+        })
+      }
   }
 }
 
@@ -37,6 +48,6 @@ export const fetchRates = () => {
     fetch(API + APP_ID)
       .then(response => response.json())
       .then(data => dispatch({type: EApp.FETCH_RATES, payload: data}))
-      .catch(err => {throw err})
+      .catch(err => {alert(err)})
   }
 }

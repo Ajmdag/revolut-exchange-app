@@ -3,10 +3,10 @@ import {EApp} from './app.actions'
 
 const initialState: IStore = {
   fromCurrency: 'USD',
-  fromCurrencyQuantity: 0,
+  fromCurrencyQuantity: '',
   ratesData: {},
   toCurrency: 'USD',
-  toCurrencyQuantity: 0,
+  toCurrencyQuantity: '',
   userMoney: {
     EUR: 300,
     GBP: 2620,
@@ -53,6 +53,8 @@ const ratesData = (state = initialState.ratesData, action: AnyAction) => {
 const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: AnyAction) => {
   switch (action.type) {
     case EApp.COUNT_TO_CURRENCY_QUANTITY:
+      return action.payload
+    case EApp.ERROR_COUNT_TO_CURRENCY_QUANTITY:
       return action.payload
     default:
       return state

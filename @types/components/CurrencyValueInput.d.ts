@@ -3,7 +3,7 @@ interface ICurrencyValueInputOwnProps {
 }
 
 interface ICurrencyValueInputStateProps {
-  toCurrencyQuantity: number
+  toCurrencyQuantity: number | string
 }
 
 interface ICurrencyValueInputDispatchProps {

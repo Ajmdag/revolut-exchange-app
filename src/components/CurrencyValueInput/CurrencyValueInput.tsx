@@ -16,13 +16,16 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
   }
 
   public render() {
+    const {currencyType, toCurrencyQuantity} = this.props
+    const inputValue = currencyType === 'to' ? toCurrencyQuantity : this.state.inputValue
+
     return (
     <div className="CurrencyValueInput">
       <input
-      disabled={this.props.currencyType === 'to'}
+      disabled={currencyType === 'to'}
       className="CurrencyValueInput-Input"
       type="text"
-      value={this.props.currencyType === 'to' ? this.props.toCurrencyQuantity : this.state.inputValue}
+      value={inputValue}
       maxLength={30}
       pattern="[0-9]*"
       onChange={this.handleChangeInput} />
