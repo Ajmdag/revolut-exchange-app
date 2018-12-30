@@ -26,7 +26,7 @@ const fromCurrency = (state = initialState.fromCurrency, action: AnyAction) => {
 const toCurrency = (state = initialState.toCurrency, action: AnyAction) => {
   switch (action.type) {
     case EApp.TO_CURRENCY_CHANGE:
-      return action.payload
+      return action.payload.rates ? action.payload.rates : action.payload
     default:
       return state
   }
@@ -41,18 +41,18 @@ const fromCurrencyQuantity = (state = initialState.fromCurrencyQuantity, action:
   }
 }
 
-const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: AnyAction) => {
+const ratesData = (state = initialState.ratesData, action: AnyAction) => {
   switch (action.type) {
-    case EApp.TO_CURRENCY_CHANGE_QUANTITY:
-      return Number(action.payload)
+    case EApp.FETCH_RATES:
+      return action.payload.rates ? action.payload.rates : action.payload
     default:
       return state
   }
 }
 
-const ratesData = (state = initialState.ratesData, action: AnyAction) => {
+const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: AnyAction) => {
   switch (action.type) {
-    case EApp.FETCH_RATES:
+    case EApp.COUNT_TO_CURRENCY_QUANTITY:
       return action.payload
     default:
       return state

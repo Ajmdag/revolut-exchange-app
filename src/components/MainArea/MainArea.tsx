@@ -4,6 +4,7 @@ import {IDispatch} from '../../store'
 import {
   changeFromCurrency,
   changeToCurrency,
+  fetchRates,
 } from '../../store/modules/App/app.actions'
 import CurrencyCard from '../CurrencyCard'
 import ExchangeTitle from '../ExchangeTitle'
@@ -23,6 +24,12 @@ class MainArea extends Component<any> {
     </div>
     )
   }
+
+  public componentDidMount() {
+    // setInterval(() => {
+      this.props.fetchRates()
+    // }, 10000)
+  }
 }
 
 const mapStateToProps = ({
@@ -33,9 +40,10 @@ const mapStateToProps = ({
   toCurrency,
 })
 
-const mapDispatchToProps = (dispatch: IDispatch) => ({
+const mapDispatchToProps = (dispatch: IDispatch): IMainAreaDispatchProps => ({
   changeFromCurrency: (currency: string) => dispatch(changeFromCurrency(currency)),
   changeToCurrency: (currency: string) => dispatch(changeToCurrency(currency)),
+  fetchRates: () => dispatch(fetchRates()),
 })
 
 export default connect(

@@ -4,6 +4,7 @@ import {IDispatch} from '../../store'
 import {
   changeFromCurrency,
   changeToCurrency,
+  countToCurrencyQuantity,
 } from '../../store/modules/App/app.actions'
 
 class CurrencySelector extends Component<ICurrencySelectorProps> {
@@ -25,15 +26,23 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
   }
 
   private handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const {
+      currencyType,
+      changeToCurrency: doChangeToCurrency,
+      changeFromCurrency: doChangeFromCurrency,
+      countToCurrencyQuantity: doCountToCurrencyQuantity,
+    } = this.props
+
     this.setState({
       selectedValue: event.target.value,
     }, () => {
-      if (this.props.currencyType === 'to') {
-        this.props.changeToCurrency(this.state.selectedValue)
+      if (currencyType === 'to') {
+        doChangeToCurrency(this.state.selectedValue)
       }
-       else if (this.props.currencyType === 'from') {
-        this.props.changeFromCurrency(this.state.selectedValue)
+      else if (currencyType === 'from') {
+        doChangeFromCurrency(this.state.selectedValue)
       }
+      doCountToCurrencyQuantity()
     })
   }
 }
@@ -41,14 +50,15 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
 const mapStateToProps = ({
   fromCurrency: fromCurrency,
   toCurrency: toCurrency,
-}: IStore) => ({
+}: IStore): ICurrencySelectorStateProps => ({
   fromCurrency,
   toCurrency,
 })
 
-const mapDispatchToProps = (dispatch: IDispatch) => ({
+const mapDispatchToProps = (dispatch: IDispatch): ICurrencySelectorDispatchProps => ({
   changeFromCurrency: (currency: string) => dispatch(changeFromCurrency(currency)),
   changeToCurrency: (currency: string) => dispatch(changeToCurrency(currency)),
+  countToCurrencyQuantity: () => dispatch(countToCurrencyQuantity()),
 })
 
 export default connect(

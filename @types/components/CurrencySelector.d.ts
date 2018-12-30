@@ -1,7 +1,19 @@
-interface ICurrencySelectorProps {
+interface ICurrencySelectorOwnProps {
+  currencyType: string
+}
+
+interface ICurrencySelectorStateProps {
   fromCurrency: string
   toCurrency: string
-  currencyType: string
+}
+
+interface ICurrencySelectorDispatchProps {
   changeFromCurrency: (arg: string) => void
   changeToCurrency: (arg: string) => void
+  countToCurrencyQuantity: () => void
 }
+
+interface ICurrencySelectorProps extends
+  ICurrencySelectorOwnProps,
+  ICurrencySelectorStateProps,
+  ICurrencySelectorDispatchProps {}
