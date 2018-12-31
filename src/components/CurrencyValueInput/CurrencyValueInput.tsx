@@ -12,7 +12,6 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
 
   public state = {
     inputValue: '',
-    isLoading: false,
   }
 
   public render() {
