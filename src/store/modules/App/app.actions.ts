@@ -34,6 +34,11 @@ export const countToCurrencyQuantity = () => {
           payload: toCurrencyQuantity,
           type: EApp.COUNT_TO_CURRENCY_QUANTITY,
         })
+      } else if (!fromCurrencyQuantity) {
+        dispatch({
+          payload: '',
+          type: EApp.COUNT_TO_CURRENCY_QUANTITY,
+        })
       } else {
         dispatch({
           payload: 'An error happend ;(',
