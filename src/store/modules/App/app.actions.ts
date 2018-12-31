@@ -39,7 +39,13 @@ export const countToCurrencyQuantity = () => {
           payload: '',
           type: EApp.COUNT_TO_CURRENCY_QUANTITY,
         })
-      } else {
+      } else if (!ratesData[fromCurrency] || !ratesData[toCurrency] && fromCurrencyQuantity) {
+        dispatch({
+          payload: 'Loading...',
+          type: EApp.COUNT_TO_CURRENCY_QUANTITY,
+        })
+      }
+      else {
         dispatch({
           payload: 'An error happend ;(',
           type: EApp.ERROR_COUNT_TO_CURRENCY_QUANTITY,

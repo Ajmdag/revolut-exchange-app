@@ -12,6 +12,7 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
 
   public state = {
     inputValue: '',
+    isLoading: false,
   }
 
   public render() {
@@ -27,7 +28,9 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
       value={inputValue}
       maxLength={30}
       pattern="[0-9]*"
-      onChange={this.handleChangeInput} />
+      onChange={this.handleChangeInput}
+      onBlur={this.handleBlurInput}
+      autoFocus={true} />
     </div>
     )
   }
@@ -55,6 +58,10 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
         doCountToCurrencyQuantity()
       })
     }
+  }
+
+  private handleBlurInput = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.target.focus()
   }
 }
 
