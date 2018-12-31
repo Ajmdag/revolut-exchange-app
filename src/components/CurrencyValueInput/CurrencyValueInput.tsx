@@ -32,6 +32,12 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
     )
   }
 
+  public componentDidUpdate() {
+    if (this.props.currencyType === 'to' && this.state.inputValue !== '') {
+      this.props.countToCurrencyQuantity()
+    }
+  }
+
   private handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target
 
@@ -54,7 +60,9 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
 
 const mapStateToProps = ({
   toCurrencyQuantity: toCurrencyQuantity,
+  ratesData: ratesData,
 }: IStore): ICurrencyValueInputStateProps => ({
+  ratesData,
   toCurrencyQuantity,
 })
 

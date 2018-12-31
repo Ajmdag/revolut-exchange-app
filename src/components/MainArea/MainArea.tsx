@@ -26,9 +26,10 @@ class MainArea extends Component<any> {
   }
 
   public componentDidMount() {
-    // setInterval(() => {
+    this.props.fetchRates()
+    setInterval(() => {
       this.props.fetchRates()
-    // }, 10000)
+    }, 10000)
   }
 }
 

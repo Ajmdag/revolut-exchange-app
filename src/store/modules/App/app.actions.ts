@@ -2,7 +2,7 @@ import {IDispatch, IGetState} from '../../'
 
 // API data for openexchangerates.org
 const API = 'https://openexchangerates.org/api/latest.json?app_id='
-const APP_ID = 'db72535fa96944f8b020ae751a503707___'
+const APP_ID = 'db72535fa96944f8b020ae751a503707'
 
 export enum EApp {
   FROM_CURRENCY_CHANGE = '@fromCurrency/CHANGE',

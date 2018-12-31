@@ -4,6 +4,7 @@ interface ICurrencyValueInputOwnProps {
 
 interface ICurrencyValueInputStateProps {
   toCurrencyQuantity: number | string
+  ratesData: object
 }
 
 interface ICurrencyValueInputDispatchProps {
