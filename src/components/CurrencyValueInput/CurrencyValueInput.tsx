@@ -22,7 +22,7 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
     <div className="CurrencyValueInput">
       <input
       disabled={currencyType === 'to'}
-      className="CurrencyValueInput-Input"
+      className={`CurrencyValueInput-Input ${currencyType === 'to' ? 'CurrencyValueInput-Input_to' : ''}`}
       type="text"
       value={inputValue}
       maxLength={30}

@@ -7,6 +7,8 @@ import {
   countToCurrencyQuantity,
 } from '../../store/modules/App/app.actions'
 
+import './CurrencySelector.css'
+
 class CurrencySelector extends Component<ICurrencySelectorProps> {
 
   public state = {
@@ -16,7 +18,7 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
   public render() {
     return (
     <div className="CurrencySelector">
-      <select onChange={this.handleChangeSelect} name="" id="">
+      <select className="CurrencySelector-Select" onChange={this.handleChangeSelect} name="" id="">
         <option>USD</option>
         <option>EUR</option>
         <option>GBP</option>

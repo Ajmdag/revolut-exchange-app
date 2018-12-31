@@ -48,6 +48,5 @@ export const fetchRates = () => {
     fetch(API + APP_ID)
       .then(response => response.json())
       .then(data => dispatch({type: EApp.FETCH_RATES, payload: data}))
-      .catch(err => {alert(err)})
   }
 }

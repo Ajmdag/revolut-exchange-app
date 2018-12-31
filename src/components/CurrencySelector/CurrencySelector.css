@@ -1,0 +1,8 @@
+.CurrencySelector {
+  display: flex;
+}
+
+.CurrencySelector-Select {
+  border: none;
+  padding: 5px;
+}

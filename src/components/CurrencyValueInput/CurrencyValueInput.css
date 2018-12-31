@@ -1,7 +1,16 @@
 .CurrencyValueInput {
-
+  height: 100px;
+  display: flex;
+  margin-right: 30px;
 }
 
 .CurrencyValueInput-Input {
   text-align: right;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.CurrencyValueInput-Input_to {
+  background-color: transparent;
 }
