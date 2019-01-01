@@ -12,7 +12,6 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
 
   public state = {
     inputValue: '',
-    isLoading: false,
   }
 
   public render() {
@@ -35,8 +34,11 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
     )
   }
 
-  public componentDidUpdate() {
-    if (this.props.currencyType === 'to' && this.state.inputValue !== '') {
+  public componentDidUpdate(prevProps: ICurrencyValueInputProps) {
+    if (this.props.currencyType === 'to'
+    // JSON.stringify comparison works only if properties in objects
+    // are ordered the same
+    && JSON.stringify(this.props.ratesData) !== JSON.stringify(prevProps.ratesData)) {
       this.props.countToCurrencyQuantity()
     }
   }
