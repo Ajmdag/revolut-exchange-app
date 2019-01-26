@@ -12,6 +12,7 @@ export enum EApp {
   COUNT_TO_CURRENCY_QUANTITY = '@toCurrency/COUNT',
   ERROR_COUNT_TO_CURRENCY_QUANTITY = '@toCurrency/ERROR_WHEN_COUNT',
   FETCH_RATES = '@rates/FETCH_RATES',
+  GET_MONEY = '@money/GET',
 }
 
 export const changeFromCurrency = (currency: string) => ({type: EApp.FROM_CURRENCY_CHANGE, payload: currency})

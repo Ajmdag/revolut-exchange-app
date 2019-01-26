@@ -61,10 +61,15 @@ const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: Any
   }
 }
 
+const userMoney = (state = initialState.userMoney) => {
+  return state
+}
+
 export default combineReducers({
   fromCurrency,
   fromCurrencyQuantity,
   ratesData,
   toCurrency,
   toCurrencyQuantity,
+  userMoney
 })
