@@ -71,5 +71,5 @@ export default combineReducers({
   ratesData,
   toCurrency,
   toCurrencyQuantity,
-  userMoney
+  userMoney,
 })

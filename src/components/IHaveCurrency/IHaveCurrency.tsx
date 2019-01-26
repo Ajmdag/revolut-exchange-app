@@ -24,9 +24,9 @@ class IHaveCurrency extends Component<IIHaveCurrencyProps> {
 }
 
 const mapStateToProps = ({userMoney, fromCurrency, toCurrency}: IStore): IIHaveCurrencyStateProps => ({
-  userMoney,
   fromCurrency,
-  toCurrency
+  toCurrency,
+  userMoney,
 })
 
 export default connect(
