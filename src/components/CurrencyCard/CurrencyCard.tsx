@@ -6,10 +6,10 @@ import IHaveCurrency from '../IHaveCurrency'
 import './CurrencyCard.css'
 
 class CurrencyCard extends Component<ICurrencyCardProps> {
-  public render() {
+  render() {
     return (
-    <div className="CurrencyCard">
-      <div className="CurrencyCard-ExchangeContainer">
+    <div className='CurrencyCard'>
+      <div className='CurrencyCard-ExchangeContainer'>
         <CurrencyValueInput currencyType={this.props.currencyType}/>
         <CurrencySelector currencyType={this.props.currencyType}/>
       </div>

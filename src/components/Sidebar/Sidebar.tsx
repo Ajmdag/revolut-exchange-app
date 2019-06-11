@@ -5,10 +5,10 @@ import Logo from '../Logo'
 import './Sidebar.css'
 
 class Sidebar extends Component {
-  public render() {
+  render() {
 
     return (
-    <div className="Sidebar">
+    <div className='Sidebar'>
       <Logo />
       <ExitButton />
     </div>

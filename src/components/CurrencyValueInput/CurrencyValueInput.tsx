@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {IDispatch} from '../../store'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { IDispatch } from '../../store'
 import {
   changeFromCurrencyQuantity,
   countToCurrencyQuantity,
@@ -10,35 +10,35 @@ import './CurrencyValueInput.css'
 
 class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
 
-  public state = {
+  state = {
     inputValue: '',
   }
 
-  public render() {
-    const {currencyType, toCurrencyQuantity} = this.props
+  render() {
+    const { currencyType, toCurrencyQuantity } = this.props
     const inputValue = currencyType === 'to' ? toCurrencyQuantity : this.state.inputValue
 
     return (
-    <div className="CurrencyValueInput">
-      <input
-      disabled={currencyType === 'to'}
-      className={`CurrencyValueInput-Input ${currencyType === 'to' ? 'CurrencyValueInput-Input_to' : ''}`}
-      type="text"
-      value={inputValue}
-      maxLength={30}
-      pattern="[0-9]*"
-      onChange={this.handleChangeInput}
-      onBlur={this.handleBlurInput}
-      autoFocus={true} />
-    </div>
+      <div className='CurrencyValueInput'>
+        <input
+          disabled={currencyType === 'to'}
+          className={`CurrencyValueInput-Input ${currencyType === 'to' ? 'CurrencyValueInput-Input_to' : ''}`}
+          type='text'
+          value={inputValue}
+          maxLength={30}
+          pattern='[0-9]*'
+          onChange={this.handleChangeInput}
+          onBlur={this.handleBlurInput}
+          autoFocus={true} />
+      </div>
     )
   }
 
-  public componentDidUpdate(prevProps: ICurrencyValueInputProps) {
+  componentDidUpdate(prevProps: ICurrencyValueInputProps) {
     if (this.props.currencyType === 'to'
-    // JSON.stringify comparison works only if properties in objects
-    // are ordered the same
-    && JSON.stringify(this.props.ratesData) !== JSON.stringify(prevProps.ratesData)) {
+      // JSON.stringify comparison works only if properties in objects
+      // are ordered the same
+      && JSON.stringify(this.props.ratesData) !== JSON.stringify(prevProps.ratesData)) {
       this.props.countToCurrencyQuantity()
     }
   }
@@ -52,10 +52,10 @@ class CurrencyValueInput extends Component<ICurrencyValueInputProps> {
       countToCurrencyQuantity: doCountToCurrencyQuantity,
     } = this.props
 
-  // validate *from* field to include only numbers
-  if (currencyType === 'from' && target.validity.valid) {
-    const inputValue = target.validity.valid ? target.value : this.state.inputValue
-    this.setState({inputValue}, () => {
+    // validate *from* field to include only numbers
+    if (currencyType === 'from' && target.validity.valid) {
+      const inputValue = target.validity.valid ? target.value : this.state.inputValue
+      this.setState({ inputValue }, () => {
         doChangeFromCurrencyQuantity(this.state.inputValue)
         doCountToCurrencyQuantity()
       })

@@ -1,52 +1,24 @@
 {
-    "extends": [
-      "tslint:latest",
-      "tslint-react",
-      "tslint-config-prettier"
-    ],
-    "rules": {
-      "indent": [true, "spaces", 2],
-      "no-unused-expression": [true, "allow-fast-null-checks"],
-      "no-empty-interface": false,
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+      "max-line-length": {
+          "options": [255]
+      },
+      "linebreak-style": [true, "LF"],
+      "quotemark": [true, "single", "avoid-escape", "avoid-template"],
       "no-console": false,
-      "quotemark": [true, "single", "jsx-double"],
-      "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
-      "jsx-no-multiline-js": false,
+      "no-unused-expression": true,
+      "ordered-imports": false,
+      "member-access": [true, "no-public"],
+      "object-literal-sort-keys": false,
+      "curly": [true, "ignore-same-line"],
       "semicolon": [true, "never"],
-      "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
-      "jsx-no-lambda": true,
-      "space-within-parens": true,
-      "max-line-length": [true, 120],
-      "arrow-parens": [true, "ban-single-arg-parens"],
-      "newline-before-return": true,
-      "newline-per-chained-call": true,
-      "no-irregular-whitespace": true,
-      "prefer-template": [true, "allow-single-concat"],
-      "curly": true,
-      "object-curly-spacing": [true, "never"],
-      "no-consecutive-blank-lines": true,
-      "whitespace": [
-        true,
-        "check-branch",
-        "check-operator",
-        "check-typecast",
-        "check-separator",
-        "check-rest-spread",
-        "check-type",
-        "check-typecast",
-        "check-type-operator"
-      ],
-      "no-trailing-whitespace": [true, "ignore-jsdoc", "ignore-comments", "ignore-template-strings", "ignore-blank-lines"]
-    },
-    "rulesDirectory": [
-      "node_modules/tslint-eslint-rules/dist/rules"
-    ],
-    "linterOptions": {
-      "exclude": [
-        "config/**/*.js",
-        "**/node_modules/**/*",
-        "coverage/lcov-report/*.js"
-      ]
-    }
-  }
-  
+      "no-var-requires": false,
+      "interface-name": [false, "never-prefix"]
+  },
+  "rulesDirectory": []
+}

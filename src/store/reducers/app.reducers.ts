@@ -1,5 +1,7 @@
-import {AnyAction, combineReducers} from 'redux'
-import {EApp} from './app.actions'
+import { AnyAction, combineReducers } from 'redux'
+import { exchangeCurrencies as exchangeCurrenciesAction } from '../actions/exchangeCurrencies'
+import { EApp } from '../modules/App/app.actions'
+import {IGetStateData} from '../sagas/exchangeCurrencies'
 
 const initialState: IStore = {
   fromCurrency: 'USD',
@@ -12,6 +14,23 @@ const initialState: IStore = {
     GBP: 2620,
     USD: 3300,
   },
+}
+
+const userMoney = (state = initialState.userMoney, action: {type: string, payload: IGetStateData}) => {
+  switch (action.type) {
+    case exchangeCurrenciesAction.type:
+      const actionPayload = action.payload
+
+      return {
+        ...state,
+        [actionPayload.fromCurrency]:
+          Number(state[actionPayload.fromCurrency]) - Number(actionPayload.fromCurrencyQuantity),
+        [actionPayload.toCurrency]:
+          Number(state[actionPayload.toCurrency]) + Number(actionPayload.toCurrencyQuantity),
+      }
+    default:
+      return state
+  }
 }
 
 const fromCurrency = (state = initialState.fromCurrency, action: AnyAction) => {
@@ -61,11 +80,12 @@ const toCurrencyQuantity = (state = initialState.toCurrencyQuantity, action: Any
   }
 }
 
-const userMoney = (state = initialState.userMoney) => {
-  return state
-}
+// const userMoney = (state = initialState.userMoney) => {
+//   return state
+// }
 
 export default combineReducers({
+  // exchangeCurrencies,
   fromCurrency,
   fromCurrencyQuantity,
   ratesData,

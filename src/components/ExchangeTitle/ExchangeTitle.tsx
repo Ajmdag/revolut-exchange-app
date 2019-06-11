@@ -8,11 +8,11 @@ import {
 import './ExchangeTitle.css'
 
 class ExchangeTitle extends Component<IExchangeTitleProps> {
-  public render() {
+  render() {
     return (
-    <div className="ExchangeTitle">
+    <div className='ExchangeTitle'>
       <span>{this.props.fromCurrency}</span>
-      <img className="ExchangeTitle-Image" src="./assets/arrow.svg" alt=""/>
+      <img className='ExchangeTitle-Image' src='./assets/arrow.svg' alt=''/>
       <span>{this.props.toCurrency}</span>
     </div>
     )

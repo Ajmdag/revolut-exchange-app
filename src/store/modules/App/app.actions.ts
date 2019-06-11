@@ -30,7 +30,7 @@ export const countToCurrencyQuantity = () => {
       1 / ratesData[fromCurrency] * ratesData[toCurrency] * Number(fromCurrencyQuantity)
       ).toFixed(2))
 
-      if (toCurrencyQuantity) {
+    if (toCurrencyQuantity) {
         dispatch({
           payload: toCurrencyQuantity,
           type: EApp.COUNT_TO_CURRENCY_QUANTITY,
@@ -45,8 +45,7 @@ export const countToCurrencyQuantity = () => {
           payload: 'Loading...',
           type: EApp.COUNT_TO_CURRENCY_QUANTITY,
         })
-      }
-      else {
+      } else {
         dispatch({
           payload: 'An error happend ;(',
           type: EApp.ERROR_COUNT_TO_CURRENCY_QUANTITY,
@@ -58,7 +57,7 @@ export const countToCurrencyQuantity = () => {
 export const fetchRates = () => {
   return (dispatch: IDispatch) => {
     fetch(API + APP_ID)
-      .then(response => response.json())
-      .then(data => dispatch({type: EApp.FETCH_RATES, payload: data}))
+      .then((response) => response.json())
+      .then((data) => dispatch({type: EApp.FETCH_RATES, payload: data}))
   }
 }

@@ -11,14 +11,14 @@ import './CurrencySelector.css'
 
 class CurrencySelector extends Component<ICurrencySelectorProps> {
 
-  public state = {
+  state = {
     selectedValue: '',
   }
 
-  public render() {
+  render() {
     return (
-    <div className="CurrencySelector">
-      <select className="CurrencySelector-Select" onChange={this.handleChangeSelect} name="" id="">
+    <div className='CurrencySelector'>
+      <select className='CurrencySelector-Select' onChange={this.handleChangeSelect} name='' id=''>
         <option>USD</option>
         <option>EUR</option>
         <option>GBP</option>
@@ -40,8 +40,7 @@ class CurrencySelector extends Component<ICurrencySelectorProps> {
     }, () => {
       if (currencyType === 'to') {
         doChangeToCurrency(this.state.selectedValue)
-      }
-      else if (currencyType === 'from') {
+      } else if (currencyType === 'from') {
         doChangeFromCurrency(this.state.selectedValue)
       }
       doCountToCurrencyQuantity()

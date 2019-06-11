@@ -1,13 +1,9 @@
 import React, {Component} from 'react'
 
-class ExchangeButton extends Component {
-  public render() {
+export class ExchangeButton extends Component<IExchangeButtonDispatchProps> {
+  render() {
     return (
-    <div className="ExchangeButton">
-      ExchangeButton
-    </div>
+      <button className='ExchangeButton' onClick={this.props.exchangeCurrenciesPrepare}>Exchange</button>
     )
   }
 }
-
-export default ExchangeButton
